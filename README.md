@@ -15,11 +15,11 @@
 
 ## 👥 Group Members
 
-| Name | Email |
-|----|------|
-| Anurag C Kale | anurag.kale@example.com |
-| Shreyash S Chavare | shreyash.chavare@example.com |
-| Somesh R Sharma | somesh.sharma@example.com |
+| Name | Email | Roll No |
+|----|------|-----------|
+| Anurag C. Kale | anuragkale264@gmail.com| 95013 |
+| Shreyash S. Chavare | shreyashchavare3110@gmail.com | 94384 |
+| Somesh R. Sharma | someshsharma8132@gmail.com | 94377 |
 
 ---
 
@@ -86,19 +86,13 @@ The agent:
   <img src="https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python&logoColor=white"/> &nbsp;
   <img src="https://img.shields.io/badge/Streamlit-1.29-red?style=for-the-badge&logo=streamlit&logoColor=white"/> &nbsp;
   <img src="https://img.shields.io/badge/LangChain-v1-green?style=for-the-badge&logo=langchain&logoColor=white"/> &nbsp;
-  <img src="https://img.shields.io/badge/Agentic_RAG-RAG-darkgreen?style=for-the-badge"/> &nbsp;
-  <img src="https://img.shields.io/badge/ChromaDB-VectorDB-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/RAG-Retrieval_Augmented_Generation-darkgreen?style=for-the-badge"/> &nbsp;
+  <img src="https://img.shields.io/badge/Agentic_RAG-Tool_Based_Agent-green?style=for-the-badge"/> &nbsp;
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/VectorDB-ChromaDB-orange?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Selenium-Web_Scraping-lightgrey?style=for-the-badge&logo=selenium&logoColor=green"/> &nbsp;
-  <img src="https://img.shields.io/badge/LangChain-URL_Loader-blueviolet?style=for-the-badge"/> &nbsp;
-  <img src="https://img.shields.io/badge/LangChain-Sitemap_Loader-brown?style=for-the-badge"/>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/LangChain-LazyLoader-purple?style=for-the-badge"/> &nbsp;
-  <img src="https://img.shields.io/badge/PDF-Custom_Loader-darkred?style=for-the-badge"/>
 </p>
 
 <p align="center">
@@ -155,6 +149,8 @@ LLM Response Generation
 Final Answer to User
 
 ```
+
+---
 ## 🚀 Future Enhancements
 
 - 🔊 **Voice-based Chatbot**  
@@ -169,12 +165,32 @@ Final Answer to User
 - 🔐 **Authentication & Personalization**  
   User login, role-based access, and personalized responses based on user history.
 
+---
+
 ## 🏫 Institution
 
 **Sunbeam Institute of Information Technology**
+
+---
+
+## 🏢 Permission & Attribution
+
+This project was developed **with permission and guidance from Sunbeam Institute of Information Technology and Sunbeam Infotech Pvt. Ltd.** as part of an academic and internship initiative.
+
+- All website content, branding, and institutional information used in this project belong to **Sunbeam Institute of Information Technology** and **Sunbeam Infotech Pvt. Ltd.**
+- This project is intended strictly for **educational and demonstration purposes**
+- No official productization, commercial deployment, or endorsement is implied unless explicitly authorized by Sunbeam
+
+---
+
+## 📘 Documentation Ownership
+
+This README and related project documentation are maintained by  
+**Shreyash S. Chavare**, on behalf of the project team.
+
+---
 
 ## 📜 License
 
 This project is licensed under the **MIT License**.  
 See the [LICENSE](LICENSE) file for more details.
-
