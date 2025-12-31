@@ -5,9 +5,9 @@ from knowledge.vectorstore import get_vectorstore
 def sunbeam_knowledge_search(query: str) -> str:
     """Search Sunbeam knowledge base"""
     db = get_vectorstore()
-    docs = db.similarity_search(query, k=5)
+    docs = db.similarity_search(query, k=10)
 
     if not docs:
-        return "No relevant data found."
+        return "NO RESULTS FOUND. DO NOT SEARCH AGAIN. Inform the user that the knowledge base is currently empty or does not contain this information."
 
     return "\n\n".join(doc.page_content for doc in docs)

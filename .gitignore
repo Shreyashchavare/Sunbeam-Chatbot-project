@@ -1,38 +1,24 @@
-# =========================
-# Environment variables
-# =========================
-.env
-*.env
-Assignment3/.env
-
-# =========================
-# Python virtual environments
-# =========================
-venv/
-venv_*/
-venva/
-.venv/
-
-# =========================
-# Python cache
-# =========================
+# Python
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+sun/
 
-# =========================
-# IDE / Editor
-# =========================
-.vscode/
-.idea/
+# Project specific
+chroma_db/
+debug_agents.py
 
-# =========================
-# OS files
-# =========================
+# Environment variables
+.env
+
+# System
 .DS_Store
 Thumbs.db
 
-# =========================
-# Logs & temp
-# =========================
+# Logs
 *.log

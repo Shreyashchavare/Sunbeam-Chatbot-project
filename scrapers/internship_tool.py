@@ -8,9 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
-from langchain.tools import tool
 
-@tool
 def scrape_sunbeam_full(url: str) -> dict:
     """
     Scrapes the Sunbeam internship page for:
@@ -31,6 +29,7 @@ def scrape_sunbeam_full(url: str) -> dict:
     options.add_argument("--disable-notifications")
     options.add_argument("--disable-infobars")
     options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--headless=new")
 
     #  prevent renderer timeout
     options.page_load_strategy = "none"
@@ -120,6 +119,7 @@ def scrape_sunbeam_full(url: str) -> dict:
         ]
         rows = table.find_elements(By.XPATH, ".//tbody//tr")
 
+        rows_list = []
         for row in rows:
             cells = row.find_elements(By.TAG_NAME, "td")
             if len(cells) != len(headers):
@@ -128,7 +128,8 @@ def scrape_sunbeam_full(url: str) -> dict:
                 headers[i]: cells[i].text.strip()
                 for i in range(len(headers))
             }
-        data["student industrial training and internship"] = row_data
+            rows_list.append(row_data)
+        data["student industrial training and internship"] = rows_list
     except Exception as e:
         print("Scraping failed:", e)
         data["student industrial training and internship"] = []
@@ -157,16 +158,17 @@ def scrape_sunbeam_full(url: str) -> dict:
 
         # Each feature row 
         items = panel.find_elements(By.XPATH, ".//p | .//li")
-
+        
+        features_list = []
         for item in items:
             text = item.text.strip()
             if " - " in text:
                 title, description = text.split(" - ", 1)
-                res = ({
+                features_list.append({
                     "feature": title.strip(),
                     "description": description.strip()
                 })
-        data["Traning and industrial program feature"] = res
+        data["Traning and industrial program feature"] = features_list
 
     except Exception as e:
         print("Scraping failed:", e)
@@ -238,12 +240,17 @@ def scrape_sunbeam_full(url: str) -> dict:
             if len(cols) < 5:
                 continue
 
+            tech = cols[0].text.strip()
+            # Skip header row if it crept into tbody
+            if tech.lower() == "technology":
+                continue
+
             internship = {
-                "Technology":cols[0].text.strip(),
-                "Aim":cols[1].text.strip(),
-                "Prerequisite":cols[2].text.strip(),
-                "Learning":cols[3].text.strip(),
-                "Location":cols[4].text.strip()
+                "Technology": tech,
+                "Aim": cols[1].text.strip(),
+                "Prerequisite": cols[2].text.strip(),
+                "Learning": cols[3].text.strip(),
+                "Location": cols[4].text.strip()
             }
             internships.append(internship)
 
@@ -365,7 +372,7 @@ def sunbeam_json_to_documents(data: dict) -> list[Document]:
 # RUN
 if __name__ == "__main__":
     URL = "https://www.sunbeaminfo.in/internship"
-    result = scrape_sunbeam_full.invoke({"url": URL})
+    result = scrape_sunbeam_full(URL)
     print(json.dumps(result, indent=2, ensure_ascii=False))
 
     result_doc = sunbeam_json_to_documents(result)
