@@ -8,4 +8,5 @@ while True:
         break
 
     res = agent.invoke({"input": q})
-    print("\n🤖", res["output"])
+    print(res)
+    # print("\n🤖", res["output"])
