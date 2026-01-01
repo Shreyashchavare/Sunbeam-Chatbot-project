@@ -1,0 +1,10 @@
+streamlit
+langchain
+langchain-openai
+langchain-community
+langchain-chroma
+chromadb
+sentence-transformers
+selenium
+webdriver-manager
+pysqlite3-binary; sys_platform == 'win32'
